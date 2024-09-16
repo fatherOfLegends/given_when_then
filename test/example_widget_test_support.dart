@@ -2,27 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:given_when_then/given_when_then.dart';
 
-Future<void> Function(WidgetTester) harness(WidgetTestHarnessCallback<_ExampleWidgetTestHarness> callback) {
-  return (tester) => givenWhenThenWidgetTest(_ExampleWidgetTestHarness(tester), callback);
+Future<void> Function(WidgetTester) harness(
+    WidgetTestHarnessCallback<ExampleWidgetTestHarness> callback) {
+  return (tester) =>
+      givenWhenThenWidgetTest(ExampleWidgetTestHarness(tester), callback);
 }
 
-class _ExampleWidgetTestHarness extends WidgetTestHarness {
-  _ExampleWidgetTestHarness(WidgetTester tester) : super(tester);
+class ExampleWidgetTestHarness extends WidgetTestHarness {
+  ExampleWidgetTestHarness(super.tester);
 }
 
-extension ExampleGiven on WidgetTestGiven<_ExampleWidgetTestHarness> {
+extension ExampleGiven on WidgetTestGiven<ExampleWidgetTestHarness> {
   Future<void> preCondition() async {
-    await tester.pumpWidget(WidgetUnderTest());
+    await tester.pumpWidget(const WidgetUnderTest());
   }
 }
 
-extension ExampleWhen on WidgetTestWhen<_ExampleWidgetTestHarness> {
+extension ExampleWhen on WidgetTestWhen<ExampleWidgetTestHarness> {
   Future<void> userPerformsSomeAction() async {
     await tester.tap(find.text('0'));
   }
 }
 
-extension ExampleThen on WidgetTestThen<_ExampleWidgetTestHarness> {
+extension ExampleThen on WidgetTestThen<ExampleWidgetTestHarness> {
   Future<void> makeSomeAssertion() async {
     await tester.pump();
     expect(find.text('1'), findsOneWidget);
@@ -30,11 +32,13 @@ extension ExampleThen on WidgetTestThen<_ExampleWidgetTestHarness> {
 }
 
 class WidgetUnderTest extends StatefulWidget {
+  const WidgetUnderTest({super.key});
+
   @override
-  _WidgetUnderTestState createState() => _WidgetUnderTestState();
+  WidgetUnderTestState createState() => WidgetUnderTestState();
 }
 
-class _WidgetUnderTestState extends State<WidgetUnderTest> {
+class WidgetUnderTestState extends State<WidgetUnderTest> {
   int _counter = 0;
   @override
   Widget build(BuildContext context) {

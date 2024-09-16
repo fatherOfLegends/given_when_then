@@ -37,7 +37,7 @@ class WidgetTestHarness {
 class WidgetTestGiven<T extends WidgetTestHarness> extends UnitTestGiven<T> {
   /// Creates the [WidgetTestGiven], which makes both the [WidgetTestHarness] and the [WidgetTester] available for use
   /// in test pre conditions.
-  WidgetTestGiven(T harness) : super(harness);
+  WidgetTestGiven(super.harness);
 
   /// Class that programmatically interacts with widgets and the test environment.
   WidgetTester get tester => harness.tester;
@@ -51,7 +51,7 @@ class WidgetTestWhen<T extends WidgetTestHarness> extends UnitTestWhen<T> {
   /// Creates the [WidgetTestWhen], which makes both the [WidgetTestHarness]
   /// and the [WidgetTester] available for use
   /// in test actions.
-  WidgetTestWhen(T harness) : super(harness);
+  WidgetTestWhen(super.harness);
 
   /// Class that programmatically interacts with widgets and the test
   /// environment.
@@ -65,7 +65,7 @@ class WidgetTestWhen<T extends WidgetTestHarness> extends UnitTestWhen<T> {
 class WidgetTestThen<T extends WidgetTestHarness> extends UnitTestThen<T> {
   /// Creates the [WidgetTestThen], which makes both the [WidgetTestHarness]
   /// and the [WidgetTester] available for use in test actions.
-  WidgetTestThen(T harness) : super(harness);
+  WidgetTestThen(super.harness);
 
   /// Class that programmatically interacts with widgets and the test
   /// environment.
