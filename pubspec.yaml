@@ -1,4 +1,4 @@
-name: given_when_then
+name: given_when_then_fol_edition
 description: A Flutter package to enable code reuse while making tests more readable.
 version: 0.3.0
 homepage: https://github.com/fatherOfLegends/given_when_then

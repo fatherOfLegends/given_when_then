@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:given_when_then/given_when_then.dart';
+import 'package:given_when_then_fol_edition/given_when_then.dart';
 
 Future<void> Function(WidgetTester) harness(
     WidgetTestHarnessCallback<ExampleWidgetTestHarness> callback) {
